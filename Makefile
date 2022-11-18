@@ -1,8 +1,8 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -pedantic -g
 
-CFILES = main.c bubble_sort.c
-OFILES = main.o bubble_sort.o
+CFILES = main.c bubble_sort.c usefull.c
+OFILES = main.o bubble_sort.o usefull.o
 
 OUTPUT = sortingalgorithms
 
