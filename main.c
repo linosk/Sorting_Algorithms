@@ -7,10 +7,16 @@
 
 int main(int argc, char** argv)
 {
-    int arr[15] = {9,3,7,4,1,5,6,1,6,2,1,0,8,5,4};
-    print_int_array(arr,15);
-    quick_sort(arr,15);
-    print_int_array(arr,15);
+    //int arr[15] = {9,3,7,4,1,5,6,1,6,2,1,0,8,5,4};
+    //print_int_array(arr,15);
+    //quick_sort(arr,15);
+    //print_int_array(arr,15);
+
+    //int arr[10] = {1,9,4,2,6,7,8,3,8,6};
+    //int arr[10] = {4,6,2,8,6,9,5,3,5,1};
+    //print_int_array(arr,10);
+    //quick_sort(arr,10);
+    //print_int_array(arr,10);
 
     //int arr[9] = {3,7,4,6,2,1,0,8,5};
     //print_int_array(arr,9);
