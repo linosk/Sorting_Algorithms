@@ -2,6 +2,9 @@
 
 void print_int_array(int* array, int length)
 {
+    if (length<1)
+        return;
+
     for(int i=0;i<length;i++)
     {
         printf("%d",array[i]);       
