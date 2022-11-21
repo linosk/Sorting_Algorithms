@@ -2,51 +2,51 @@
 
 void __merge(int *array,int first, int middle, int last)
 {
-    int lsize = middle - first;
-    int rsize = last - middle;
-    int left[lsize];
-    int right[rsize];
-    int lindex = first;
-    int rindex = middle;
-    for(int i=0;i<lsize;i++)
+    int left_size = middle-first;
+    int right_size = last-middle;
+
+    int left_array[left_size];
+    int right_array[right_size];
+
+    int left_index = first;
+    int right_index = middle;
+
+    for(int i=0;i<left_size;i++)
     {
-        left[i] = array[lindex];
-        lindex++;
+        left_array[i] = array[left_index++];
     }
-    for(int i=0;i<rsize;i++)
+
+    for(int j=0;j<right_size;j++)
     {
-        right[i] = array[rindex];
-        rindex++;
+        right_array[j] = array[right_index++];
     }
-    lindex = first;
-    rindex = middle;
-    int tindex = first;
-    while (lindex<middle&&rindex<last)
+
+    int LEFT = 0;
+    int RIGHT = 0;
+    int TMP = first;
+
+    while(LEFT<left_size&&RIGHT<right_size)
     {
-        if(left[lindex]>right[rindex])
+        if(left_array[LEFT]<right_array[RIGHT])
         {
-            array[tindex] = right[rindex];
-            rindex++;
+            array[TMP++] = left_array[LEFT++];
         }
         else
         {
-            array[tindex] = left[lindex];
-            lindex++;
+            array[TMP++] = right_array[RIGHT++];
         }
-        tindex++;
     }
-    while (lindex<middle)
+
+    while(LEFT<left_size)
     {
-        array[tindex] = left[lindex];
-        lindex++;
-        tindex++;
+        array[TMP++] = left_array[LEFT++];
     }
-    while (rindex<last)
+
+    while (RIGHT<right_size)
     {
-        array[tindex] = right[rindex];
-        rindex++;
-        tindex++;
+        array[TMP++] = right_array[RIGHT++];
     }
+    
 }
 
 void __divide(int *array, int first, int last)

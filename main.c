@@ -21,7 +21,13 @@ int main(int argc, char** argv)
     //merge_sort(arr,len);
     //print_int_array(arr,len);
 
-    int arr[] = {9,7,1,3,5};
+    int arr[] = {9,7,1,3,0};
+    int len = sizeof(arr)/sizeof(arr[0]);
+
+    merge_sort(arr,len);
+    print_int_array(arr,len);
+
+    /*
     int left_index = 0;
     int right_index = sizeof(arr)/sizeof(arr[0]);
     int middle_index = (right_index+left_index)/2;
@@ -98,6 +104,8 @@ int main(int argc, char** argv)
     }
 
     print_int_array(arr,right_index);
+
+*/
 
     return 0;
 }
