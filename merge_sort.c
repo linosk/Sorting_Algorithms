@@ -1,59 +1,60 @@
 #include "merge_sort.h"
 
-void __merge(int *array,int first, int middle, int last)
+void __merge(int *array, int first, int middle, int last)
 {
-    int left_size = middle-first;
-    int right_size = last-middle;
-
-    int left_array[left_size];
-    int right_array[right_size];
-
-    int left_index = first;
-    int right_index = middle;
-
-    for(int i=0;i<left_size;i++)
+    int sl = middle-first+1;
+    int sr = last-middle;
+    int al[sl];
+    int ar[sr];
+    int il = first;
+    int ir = middle+1;
+    for(int i=0;i<sl;i++)
     {
-        left_array[i] = array[left_index++];
+        al[i] = array[il];
+        il++;
     }
-
-    for(int j=0;j<right_size;j++)
+    for(int j=0;j<sr;j++)
     {
-        right_array[j] = array[right_index++];
+        ar[j] = array[ir];
+        ir++;
     }
-
-    int LEFT = 0;
-    int RIGHT = 0;
-    int TMP = first;
-
-    while(LEFT<left_size&&RIGHT<right_size)
+    int til = 0;
+    int tir = 0;
+    int tit = first;
+    while(til<sl&&tir<sr)
     {
-        if(left_array[LEFT]<right_array[RIGHT])
+        if(al[til]>ar[tir])
         {
-            array[TMP++] = left_array[LEFT++];
+            array[tit] = ar[tir];
+            tit++;
+            tir++;
         }
         else
         {
-            array[TMP++] = right_array[RIGHT++];
+            array[tit] = al[til];
+            tit++;
+            til++;
         }
     }
-
-    while(LEFT<left_size)
+    while(til<sl)
     {
-        array[TMP++] = left_array[LEFT++];
+        array[tit] = al[til];
+        tit++;
+        til++;
     }
-
-    while (RIGHT<right_size)
+    while(tir<sr)
     {
-        array[TMP++] = right_array[RIGHT++];
+        array[tit] = ar[tir];
+        tit++;
+        tir++;
     }
-    
 }
 
-void __divide(int *array, int first, int last)
+void __divide(int* array, int first, int last)
 {
     if(first<last)
     {
-        int middle = (first+last)/2;
+        int middle = (last+first)/2;
         __divide(array,first,middle);
         __divide(array,middle+1,last);
         __merge(array,first,middle,last);
@@ -62,5 +63,5 @@ void __divide(int *array, int first, int last)
 
 void merge_sort(int* array, int length)
 {
-    __divide(array,0,length);
+    __divide(array,0,length-1);
 }
